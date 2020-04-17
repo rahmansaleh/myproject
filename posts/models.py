@@ -1,5 +1,6 @@
 from django.db import models
 from django.conf import settings
+from django.urls import reverse
 import datetime
 
 class Post(models.Model):
@@ -11,6 +12,9 @@ class Post(models.Model):
     publish = models.DateField(auto_now=False, auto_now_add=False, default=datetime.date.today)
     updated = models.DateTimeField(auto_now=True)
     timestamp = models.DateTimeField(auto_now_add=True, null=True, blank=True)
+
+    def get_absolute_url(self):
+        return reverse('posts:detail', kwargs={"slug": self.slug})
 
     def __str__(self):
         return self.title
