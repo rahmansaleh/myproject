@@ -3,14 +3,21 @@
 {% block title %}Post{% endblock %}
 
 {% block content %}
-        <h1>POST</h1>
-        {% for post in postlist %}
-            <a href="{{ post.get_absolute_url }}">{{ post.title }}</a><br/>
-            {% if post.image %}
-                <img src="{{ post.image.url }}" width="300px"/>
-            {% endif %}
-        
-            {{ post.content }} <br/>
-            <hr/>
-        {% endfor %}
+<div class="col-md-8">
+    <h1 class="my-4">Posting <small>blognya</small></h1>
+    {% for post in postlist %}
+        <div class="card mb-4">
+            <img class="card-img-top" src="{{ post.image.url }}" alt="Card image cap">
+            <div class="card-body">
+                <h3 class="card-title">{{ post.title }}</h3>
+                <p class="card-text">{{ post.content }}</p>
+                <a href="{{ post.get_absolute_url }}" class="btn btn-primary">Read More -></a>
+            </div>
+            <div class="card-footer text-muted">
+                {{ post.publish }} by <a href="#">{{ post.user }}</a>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+<br/>
 {% endblock content %}
