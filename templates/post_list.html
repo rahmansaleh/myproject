@@ -1,10 +1,8 @@
-<!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="utf-8">
-        <title>Post</title>
-    </head>
-    <body>
+{% extend 'base.html' %}
+
+{% block title %}Post{% endblock %}
+
+{% block content %}
         <h1>POST</h1>
         {% for post in postlist %}
             <a href="{{ post.get_absolute_url }}">{{ post.title }}</a><br/>
@@ -15,5 +13,4 @@
             {{ post.content }} <br/>
             <hr/>
         {% endfor %}
-    </body>
-</html>
+{% endblock content %}
