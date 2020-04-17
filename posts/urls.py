@@ -8,3 +8,5 @@ urlpatterns = [
     url(r'^$', post_list, name='post_list'),
     url(r'^(?P<slug>[\w-]+)/$', post_detail, name='detail'),
 ]
+
+app_name = 'posts'
