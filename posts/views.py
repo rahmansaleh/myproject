@@ -4,8 +4,8 @@ from .models import Post
 
 def post_list(request):
     postlist = Post.objects.filter(draft=False)
-    return render(request, 'home.html', {'postlist': postlist})
+    return render(request, 'post_list.html', {'postlist': postlist})
 
 def post_detail(request, slug):
     post = get_object_or_404(Post, slug=slug, draft=False)
-    return render(request, 'detail.html', {'post': post})
+    return render(request, 'post_detail.html', {'post': post})
