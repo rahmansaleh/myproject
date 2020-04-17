@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>Post</title>
+    </head>
+    <body>
+        <h1>POST</h1>
+        {% for post in postlist %}
+            <a href="{{ post.get_absolute_url }}">{{ post.title }}</a><br/>
+            {% if post.image %}
+                <img src="{{ post.image.url }}" width="300px"/>
+            {% endif %}
+        
+            {{ post.content }} <br/>
+            <hr/>
+        {% endfor %}
+    </body>
+</html>
